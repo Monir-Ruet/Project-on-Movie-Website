@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= video[0].title %></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="icon" href="/icons/nav.png" type="img/gif" sizes="16X16">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+	<link rel="stylesheet" type="text/css" href="/css/menu.css">
+	<link rel="stylesheet" type="text/css" href="/css/player.css">
+	<link rel="stylesheet" type="text/css" href="/css/css/all.min.css"> 
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<script src="js/player.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<script src="js/menu.js"></script>
+
+	<script>
+		window.console = window.console || function(t) {};
+		if (document.location.search.match(/type=embed/gi)) { window.parent.postMessage("resize", "*"); }
+	</script>
+
+</head>
+<body>
+	<div class="wrapper">
+		<%- include('menu.ejs') %>
+		<script src="js/search.min.js"></script>
+		<div class="main">
+			<div class="player">
+				<div id="embed"></div><br>
+				<p style="font-size: 20px"><%= video[0].title %></p>
+				<p style="font-size: 15px">Rating :<%= video[0].rating %>   , Year :<%= video[0].year %></p><br><hr><br>
+				<h4>Discription</h4><br>
+				<p style="font-size: 16px"><%= video[0].discription %></p>
+			</div>
+			<script src="js/embed.js"></script><script>var back='<%= video[0].embeded %>';fucklink('#embed', back);</script>
+
+			<div class="play-list">
+				<% for(var i=0;i< playlist.length;i++) { %>
+				<a href="/watch?v=<%=playlist[i].embeded %>" class="nav">
+					<div class="card">
+						<div class="img">
+							<img src="https://img.putlocker.how/<%=playlist[i].img %>">
+						</div>
+						<div class="details">
+							<h3 class="title"><%=playlist[i].title%></h3>
+							<p class="all"> Rating :<%=playlist[i].rating%></p>
+							<p class="all"> Year :<%=playlist[i].year%></p>
+							<p class="all"> Genre :<%=playlist[i].genre%></p>
+						</div>
+					</div>
+				</a>
+				<%} %>
+				
+			</div>
+			<script>suggestion();</script>
+		</div>
+	</div>
+</body>
+</html>

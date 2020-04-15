@@ -1,0 +1,70 @@
+<div class="top-navbar">
+	<div class="icon">
+		<i class="fas fa-bars"></i>
+		<a href="/"><div class="logo"></div></a>
+	</div>
+	<form method="GET" action="/search">
+		<input type="text" name="q" id="search" placeholder="Search" autocomplete="off" >
+	</form>
+	<div class="icon">
+		<i class="fas fa-search"></i>
+	</div>
+</div>
+
+<div id="results"></div>
+
+<div class="nav-outer-container">
+	<div class="nav-content-container">
+		<ul class="nav-main-sections-container">
+			<li class="nav-main-section">
+				<div class="nav-main-section-inner-container">
+					<ul class="nav-main-section-links">
+						<li class="nav-main-section-link">
+							<a href="/" class="nav-main-section-link-a">
+								<span class="link-container">
+									<span class="nav-link-icon"><i class="ion-home icon"></i></span>
+									<span class="nav-link-text">Home</span>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li class="nav-main-section">
+				<div class="nav-main-section-inner-container">
+					<ul class="nav-main-section-links">
+						<li class="nav-main-section-link">
+							<a href="/latest?page=1" class="nav-main-section-link-a">
+								<span class="link-container">
+									<span class="nav-link-icon"><i class="ion-ios-filing icon"></i></span>
+									<span class="nav-link-text">Latest</span>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li class="nav-main-section">
+				<div class="nav-main-section-inner-container">
+					<ul class="nav-main-section-links">
+						<li class="nav-main-section-link">
+							<a href="/popular?page=1" class="nav-main-section-link-a">
+								<span class="link-container">
+									<span class="nav-link-icon"><i class="ion-flame icon"></i></span>
+									<span class="nav-link-text">Popular</span>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<hr />
+
+		<h3 class="nav-main-section-header">Library</h3>
+			<ul class="nav-main-sections-container"></ul>
+			<script> cat();</script>
+	</div>
+</div>

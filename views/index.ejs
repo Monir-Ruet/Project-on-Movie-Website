@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FUKMovies</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="icon" href="/icons/nav.png" type="img/gif" sizes="16X16">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="js/contextLoader.min.js"></script>
+	<script src="js/contextLoader.min.js"></script>
+	<link href="css/contextLoader.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/menu.css">
+	<link rel="stylesheet" type="text/css" href="/css/index.css">
+	<link rel="stylesheet" type="text/css" href="/css/css/all.min.css">
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+	<script src="js/menu.js"></script>
+	<script src="js/index.js"></script>
+	<script>
+		window.console = window.console || function(t) {};
+		if (document.location.search.match(/type=embed/gi)) { window.parent.postMessage("resize", "*"); }
+	</script>
+
+</head>
+<body>
+	<div class="wrapper">
+		<%- include('menu.ejs') %>
+		<script src="js/search.min.js"></script>
+		<div class="main-content">
+			<h2>Latest</h2>
+			<br><hr>
+			<div class="content">
+				<% for(var i=0;i< latest.length;i++) { %>
+				<div class="card">
+					<div class="card-content">
+						<a href="watch?v=<%= latest[i].embeded %>">
+							<img src="https://img.putlocker.how/<%= latest[i].img %>" width="250px" height="200px">
+						</a>
+						<div class="properties">
+							<h3 class="title"><%= latest[i].title %></h3>
+							<p style="margin: auto;">Rating: <%=latest[i].rating %> , Year: <%= latest[i].year %> </p>
+						</div>
+					</div>
+				</div>
+				<%} %>
+			</div>
+
+			<h2>Popular</h2>
+			<br><hr>
+			<div class="content">
+				<% for(var i=0;i< popular.length;i++) { %>
+				<div class="card">
+					<div class="card-content">
+						<a href="watch?v=<%= popular[i].embeded %>">
+							<img src="https://img.putlocker.how/<%= popular[i].img %>" width="250px" height="200px">
+						</a>
+						<div class="properties">
+							<h3 class="title"><%= popular[i].title %></h3>
+							<p style="margin: auto;">Rating: <%=popular[i].rating %> , Year: <%= popular[i].year %> </p>
+						</div>
+					</div>
+				</div>
+				<%} %>
+			</div>
+			<h2>Comedy</h2>
+			<br><hr>
+			<div class="content">
+				<% for(var i=0;i< comedy.length;i++) { %>
+				<div class="card">
+					<div class="card-content">
+						<a href="watch?v=<%= comedy[i].embeded %>">
+							<img src="https://img.putlocker.how/<%= comedy[i].img %>" width="250px" height="200px">
+							<div class="properties">
+								<h3 class="title"><%= comedy[i].title %></h3>
+								<p style="margin: auto;">Rating: <%=comedy[i].rating %> , Year: <%= comedy[i].year %> </p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<%} %>
+			</div>
+			<h2>Romance</h2>
+			<br><hr>
+			<div class="content">
+				<% for(var i=0;i< romance.length;i++) { %>
+				<div class="card">
+					<div class="card-content">
+						<a href="watch?v=<%= romance[i].embeded %>">
+							<img src="https://img.putlocker.how/<%= romance[i].img %>" width="250px" height="200px">
+							<div class="properties">
+								<h3 class="title"><%= romance[i].title %></h3>
+								<p style="margin: auto;">Rating: <%=romance[i].rating %> , Year: <%= romance[i].year %> </p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<%} %>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

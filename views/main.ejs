@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= catagory %></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="icon" href="/icons/nav.png" type="img/gif" sizes="16X16">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/menu.css">
+	<link rel="stylesheet" type="text/css" href="/css/index.css">
+	<script src="js/contextLoader.min.js"></script>
+	<link href="css/contextLoader.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/css/all.min.css">
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<script src="js/menu.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript" src="/js/pagination.js"></script>
+	<link type="text/css" rel="stylesheet" href="/css/pagination.css"/>
+	<script>
+		window.console = window.console || function(t) {};
+		if (document.location.search.match(/type=embed/gi)) { window.parent.postMessage("resize", "*"); }
+	</script>
+
+</head>
+<body>
+	<div class="wrapper">
+		<%- include('menu.ejs') %>
+		<script src="js/search.min.js"></script>
+		<div class="main-content">
+			<h4><%= catagory %></h4><br><hr>
+			<div class="navigator">
+				
+			</div>
+			<div class="content">
+				<% for(var i=0;i< result.length;i++) { %>
+				<div class="card">
+					<div class="card-content">
+						<a href="watch?v=<%= result[i].embeded %>">
+							<img src="https://img.putlocker.how/<%= result[i].img %>" width="250px" height="200px">
+						</a>
+						<div class="properties">
+							<h3 class="title"><a href="watch?v=<%= result[i].embeded %>"><%= result[i].title %></a></h3>
+							<p style="margin: auto;">Rating: <%=result[i].rating %> , Year: <%= result[i].year %> </p>
+						</div>
+					</div>
+				</div>
+				<%} %>
+			</div>
+			<div class="navigator"></div>
+			<script>
+				var data=<%= result.length %>;
+				if(data==0){
+					$('.navigator').hide();
+					document.getElementsByClassName('main-content')[0].innerHTML="<p>No #Result</p>";
+				}
+			</script>
+			<script>
+				$(function() {
+					var items=<%= count[0]['COUNT(*)'] %>;
+					if(items<=16){}
+					else
+					$('.navigator').pagination({
+						items: <%= count[0]['COUNT(*)'] %>,
+						prevText:'<<',
+						nextText:'>>',
+						currentPage:<%= page %>,
+						itemsOnPage: 16,
+						cssStyle: 'light-theme',
+						hrefTextPrefix:window.location.pathname+'?page='
+					});
+				});
+			</script>
+		</div>
+	</div>
+</body>
+</html>

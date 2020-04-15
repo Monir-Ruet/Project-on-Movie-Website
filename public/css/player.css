@@ -1,0 +1,76 @@
+.main{
+	display: flex;
+	position: relative;
+	top: 48px;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+#embed{
+	width: 100%;
+}
+.play-list{
+	flex: 1;
+	margin-top: 20px;
+}
+.player{
+	flex: 1.8;
+	margin:20px 20px 20px 8%;
+	width: 100%;
+}
+.img{
+	width: 200px;
+}
+img{
+	width: 100%;
+}
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.card{
+	display: flex;
+}
+.details{
+	width: 200px;
+}
+.title{
+	text-overflow: ellipsis;
+	overflow: hidden; 
+	width: 200px; 
+	height: 1.2em; 
+	white-space: nowrap;
+	margin-left: 5px;
+}
+.all{
+	margin-left: 5px;
+	font-size: 12px;
+}
+.nav-outer-container{
+	display: none;
+}
+@media only screen and (max-width: 800px) {
+	.main{
+		display:block;
+	}
+	.player{
+		width: 98%;
+		margin: auto;
+	}
+	.play-list{
+		width: 95%;
+		margin: auto;
+		margin-top: 10px;
+	}
+}
+@media only screen and (max-width: 400px) {
+	.title{
+		width: 65%;
+	}
+
+	.all{
+		width: 65%;
+		font-size: 8px;
+	}
+}
